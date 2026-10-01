@@ -36,7 +36,7 @@ public class ExceptionController {
 
     private List<ExceptionResponse> mapMethodArgumentExceptionResponse(MethodArgumentNotValidException methodArgumentNotValidException) {
         return methodArgumentNotValidException.getFieldErrors().stream().map(error ->
-                ExceptionResponse.builder().message(messageSourceAccessor.getMessage(error.getDefaultMessage()))
+                ExceptionResponse.builder().message(error.getDefaultMessage())
                         .build()).collect(Collectors.toList());
     }
 }

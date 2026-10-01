@@ -3,7 +3,6 @@ package org.example.springbootdenis.controller;
 import jakarta.validation.Valid;
 import org.example.springbootdenis.dto.request.UserRequest;
 import org.example.springbootdenis.dto.response.UserResponse;
-import org.example.springbootdenis.model.User;
 import org.example.springbootdenis.service.UserService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
