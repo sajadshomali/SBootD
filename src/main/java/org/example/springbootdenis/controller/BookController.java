@@ -3,7 +3,7 @@ package org.example.springbootdenis.controller;
 import jakarta.validation.Valid;
 import org.example.springbootdenis.dto.request.BookRequest;
 import org.example.springbootdenis.dto.response.BookResponse;
-import org.example.springbootdenis.service.BookService;
+import org.example.springbootdenis.service.book.BookService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

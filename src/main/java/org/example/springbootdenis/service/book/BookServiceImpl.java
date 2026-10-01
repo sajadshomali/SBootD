@@ -1,4 +1,4 @@
-package org.example.springbootdenis.service;
+package org.example.springbootdenis.service.book;
 
 import org.example.springbootdenis.dto.request.BookRequest;
 import org.example.springbootdenis.dto.response.BookResponse;

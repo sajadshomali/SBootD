@@ -1,9 +1,7 @@
-package org.example.springbootdenis.service;
+package org.example.springbootdenis.service.user;
 
 import org.example.springbootdenis.dto.request.UserRequest;
 import org.example.springbootdenis.dto.response.UserResponse;
-import org.example.springbootdenis.model.User;
-import org.springframework.stereotype.Service;
 
 
 public interface UserService {
