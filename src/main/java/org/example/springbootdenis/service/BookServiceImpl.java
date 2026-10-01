@@ -38,6 +38,13 @@ public class BookServiceImpl implements BookService {
                 build());
     }
 
+    @Override
+    public BookResponse findBookById(int id) {
+        return createBookResponse(bookRepository.findById(id).
+                orElseThrow(()->
+                        new MyExceptionRules("{The.book.not.exist}")));
+    }
+
     private Book createBook(BookRequest bookRequest){
         return Book.builder().name(bookRequest.getName())
                 .price(bookRequest.getPrice())

@@ -27,4 +27,9 @@ public class BookController {
     public ResponseEntity<Page<BookResponse>> showAll(Pageable pageable) {
        return ResponseEntity.ok(bookService.showAll(pageable));
     }
+
+    @GetMapping("/findBook/{id}")
+    public ResponseEntity<BookResponse> findBookById(@PathVariable int id){
+       return ResponseEntity.ok(bookService.findBookById(id));
+    }
 }

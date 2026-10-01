@@ -9,4 +9,6 @@ public interface BookService {
     public BookResponse save(BookRequest bookRequest);
 
     public Page<BookResponse> showAll(Pageable pageable);
+
+    public BookResponse findBookById(int id);
 }
