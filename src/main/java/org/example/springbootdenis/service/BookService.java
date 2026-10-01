@@ -2,13 +2,18 @@ package org.example.springbootdenis.service;
 
 import org.example.springbootdenis.dto.request.BookRequest;
 import org.example.springbootdenis.dto.response.BookResponse;
+import org.jspecify.annotations.Nullable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface BookService {
-    public BookResponse save(BookRequest bookRequest);
+     BookResponse save(BookRequest bookRequest);
 
-    public Page<BookResponse> showAll(Pageable pageable);
+     Page<BookResponse> showAll(Pageable pageable);
 
-    public BookResponse findBookById(int id);
+     BookResponse findBookById(int id);
+
+     List<BookResponse> findAllBooks(String name);
 }
