@@ -27,16 +27,22 @@ public class BookController {
 
     @GetMapping("/listAll")
     public ResponseEntity<Page<BookResponse>> showAll(Pageable pageable) {
-       return ResponseEntity.ok(bookService.showAll(pageable));
+        return ResponseEntity.ok(bookService.showAll(pageable));
     }
 
     @GetMapping("/findBook/{id}")
-    public ResponseEntity<BookResponse> findBookById(@PathVariable int id){
-       return ResponseEntity.ok(bookService.findBookById(id));
+    public ResponseEntity<BookResponse> findBookById(@PathVariable int id) {
+        return ResponseEntity.ok(bookService.findBookById(id));
     }
 
     @GetMapping("/findAllBooks/{name}")
-    public ResponseEntity<List<BookResponse>> findAllBooks(@PathVariable String name){
+    public ResponseEntity<List<BookResponse>> findAllBooks(@PathVariable String name) {
         return ResponseEntity.ok(bookService.findAllBooks(name));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteBook(@PathVariable int id) {
+        bookService.deleteBook(id);
+        return ResponseEntity.ok().build();
     }
 }

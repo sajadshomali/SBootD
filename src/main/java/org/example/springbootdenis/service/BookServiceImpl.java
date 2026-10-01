@@ -43,7 +43,7 @@ public class BookServiceImpl implements BookService {
     public BookResponse findBookById(int id) {
         return createBookResponse(bookRepository.findById(id).
                 orElseThrow(()->
-                        new MyExceptionRules("{The.book.not.exist}")));
+                        new MyExceptionRules("The.book.not.exist")));
     }
 
     @Override
@@ -53,6 +53,12 @@ public class BookServiceImpl implements BookService {
                         .name(book.getName())
                         .price(book.getPrice())
                         .build()).collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteBook(int id) {
+        findBookById(id);
+        bookRepository.deleteById(id);
     }
 
     private Book createBook(BookRequest bookRequest){

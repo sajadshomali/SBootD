@@ -16,4 +16,5 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
     @Query("select b from Book b where b.name like '%' ||:name || '%' ")
    // @Query(nativeQuery = true ,value = "select * from Book")
     List<Book> findAllBooks(String name);
+
 }
