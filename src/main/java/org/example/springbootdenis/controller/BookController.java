@@ -45,4 +45,9 @@ public class BookController {
         bookService.deleteBook(id);
         return ResponseEntity.ok().build();
     }
+    @DeleteMapping("/softDelete/{id}")
+    public ResponseEntity<?> softDeleteBook(@PathVariable int id) {
+        bookService.softDelete(id);
+        return ResponseEntity.ok("test");
+    }
 }

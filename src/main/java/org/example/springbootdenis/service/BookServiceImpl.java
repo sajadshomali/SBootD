@@ -8,6 +8,9 @@ import org.example.springbootdenis.repository.BookRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -61,6 +64,14 @@ public class BookServiceImpl implements BookService {
         bookRepository.deleteById(id);
     }
 
+    @Override
+    @Transactional
+    public void softDelete(int id) {
+        Book book = bookResponseToBooK(findBookById(id));
+        book.setDeleted(LocalDateTime.now());
+        bookRepository.save(book);
+    }
+
     private Book createBook(BookRequest bookRequest){
         return Book.builder().name(bookRequest.getName())
                 .price(bookRequest.getPrice())
@@ -73,6 +84,12 @@ public class BookServiceImpl implements BookService {
                 name(book.getName()).
                 price(book.getPrice()).
                 build();
+    }
+    private Book bookResponseToBooK(BookResponse bookResponse){
+        return Book.builder().
+                id(bookResponse.getId()).
+                name(bookResponse.getName()).
+                price(bookResponse.getPrice()).build();
     }
 
 }
